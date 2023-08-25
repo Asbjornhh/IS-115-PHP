@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: ../../../Users/Asbjørn/Downloads
+      dockerfile: ../../../Users/Asbjørn/Downloads/Dockerfile
+    environment:
+      MYSQL_DATABASE: ergotests
+      MYSQL_USER: a
+      MYSQL_PASSWORD: a
+      MYSQL_HOST: db
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "6603:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: a
+      MYSQL_USER: a
+      MYSQL_PASSWORD: a
+      MYSQL_DATABASE: ergotests
+    volumes:
+      - "mysql_data:/var/lib/mysql"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    ports:
+      - 8000:80
+    environment:
+      MYSQL_USER: a
+      MYSQL_PASSWORD: a
+      MYSQL_ROOT_PASSWORD: a
+
+volumes:
+  mysql_data:
+    driver: local
