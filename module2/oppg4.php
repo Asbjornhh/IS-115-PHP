@@ -32,12 +32,12 @@
 
     function Differanse($tall1, $tall2)
     {
-        $differanse = $tall1 - $tall2;
+        $differanse = abs($tall1 - $tall2);
         return "Differansen av $tall1 og $tall2 er $differanse";
     }
 
-    $tall1 = 20;
-    $tall2 = 10;
+    $tall1 = 60;
+    $tall2 = 20;
 
     $differansen = Differanse($tall1, $tall2);
 
