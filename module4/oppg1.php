@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Valider E-post</title>
+    <title>Skjekk av etternavn</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,28 +29,35 @@
 
 <div class="container">
     <?php
-    //definerer variabelen kommune til den valgte fylke
-    $kommune = "Tromsø";
 
-    $resultat1 = match($kommune) {
-        "Harstad", "Tromsø", "Alta", "Kvæfjord" => "Troms og Finmark",
-        "Lillesand", "Birkenes", "Kristiansand" => "Agder",
-        "Trondheim" => "Trøndelag",
-        "Bergen" => "Vestland",
-        "Bodø" => "Nordland",
+    // numerisk array
+    $tall = array("0", "3", "5", "7", "8", "15");
 
-        default => "Ikke gyldig"
-    };
+    // assosiativ array
+    $tall1 = array(
+        "1 tall" => "0",
+        "2 tall" => "3",
+        "3 tall" => "5",
+        "4 tall" => "7",
+        "5 tall" => "8",
+        "6 tall" => "15"
+    );
 
-    echo "$kommune kommune ligger i $resultat1 fylke.";
+    // Skriver ut den numeriske arrayen
+    print_r($tall);
+    echo "<br>";echo "<br>";
+
+    // Går gjennom den assosiative arrayen og skriver ut nøkkel og verdi
+    foreach ($tall1 as $key => $value) {
+        echo $key . " " . $value . "<br>";
+    }
 
     ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a href="Index.php" class="button">Tilbake til oppgaver</a>
+
+
 </div>
+<br><br>
+<a href="Index.php" class="button">Tilbake til oppgaver</a>
 
 </body>
 </html>
