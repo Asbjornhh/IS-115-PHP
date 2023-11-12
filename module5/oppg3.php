@@ -1,4 +1,5 @@
-
+===== SE KILDEKODE ======
+<br>
 Eksempel 1: Navngivning av variabler, konstanter og funksjoner
 <?php
 // Riktig bruk av camelCase for variabelnavn
